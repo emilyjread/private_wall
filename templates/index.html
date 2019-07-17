@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Login and Reg</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	</head>
+
+<body>
+	<div class="container">
+		<h1 class="text-center jumbotron">Private Wall</h1>
+		<h4 class="display text-center">Please sign in or register</h4>
+		<div class="section text-center">
+			<h2>Registration</h2>
+
+			<form action="/create" method="POST">
+				{% with messages = get_flashed_messages() %}
+						{% if messages %}
+							{% for message in messages %}
+								<p style="background-color: pink" class="text-center"> {{message}} </p>
+							{% endfor %}
+						{% endif %}
+				{% endwith %}
+				<h5>Username</h5><input type="text" name="username">
+				<h5>First name</h5><input type="text" name="fname">
+				<h5>Last Name</h5><input type="text" name="lname">
+				<h5>Email</h5><input type="text" name="email">
+				<h5>Password</h5><input type="text" name="pw">
+				<h5>Confirm Password</h5><input type="text" name="pwconf">
+				<input class="button btn-lg btn-block" type="submit" name="submit" value="Create">
+			</form>
+		</div>
+		<div class="section text-center">
+			<h2>Log in</h2>
+
+			<form action="/login" method="POST">
+
+			
+				<h5>Email</h5><input type="text" name="email">
+				<h5>Password</h5><input type="text" name="pw">
+				<input class="button btn-lg btn-block" type="submit" name="submit" value="Log In">
+			</form>
+			
+		</div>
+	</div>
+</body>
+</html>

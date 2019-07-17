@@ -1,0 +1,59 @@
+
+body{
+	background-color: #ccf5ff;
+}
+.container{
+
+	background-color: #ccf5ff;
+
+
+}
+.button{
+	margin: 10px;
+	
+}
+.post{
+	background-color: white;
+	width: 90%;
+	margin-bottom: 30px;
+	border-radius: 15px;
+}
+.info{
+	color: #0d001a;
+	background-color: #b3b3cc;
+}
+
+a{
+	display: inline-block;
+}
+
+.section{
+	padding: 100px;
+	width: 48%;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 15px;
+	background-color: #9999ff
+}
+.message{
+	
+	padding: 50px;
+	width: 45%;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 15px;
+	background-color: #9999ff
+}
+
+.delete{
+	margin-left: 80%;
+}
+
+.left{
+	margin-right: 60px;
+}
+.messnum{
+	color: #E9ECEF
+
+}
+

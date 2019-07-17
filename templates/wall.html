@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Your private wall</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="container">
+	<h1 class="text-center jumbotron"> <a class="button btn-lg btn-success" href="/logout">logout</a> Hello {{user[0]['username']}}! welcome to your wall</h1>
+
+	
+		<div class="message left">
+			</h1>
+			<div class="yourmess">
+				<h3>Your messages</h3>
+				<h5 class="messnum">You have {{count}} messages</h5>
+				{%for post in posts%}
+					<div class="post">
+						<p class="info">{{post['sender']}} sent you a message {{post['created_at']}}</p>
+						<p class="content">{{post['content']}}</p>
+						<a class=" delete btn btn-outline-primary" href="/delete/{{post['id']}}">Delete</a>	
+					</div>
+					
+				{%endfor%}
+			</div>
+		</div>
+		<div class="message right">
+			<h3>Send message</h3>
+			<h5 class="messnum">You have sent {{sent}} messages</h5>
+			<form action="/create_message" method="POST">
+				<select name="recipient">
+					{%for user in users%}
+					<option name="recipient" value="{{user['id']}}">{{user['fname']}}</option>
+					{%endfor%}
+				</select>
+				<input class= "col-md-10 row-md-6" type="text" name="content">
+				<input class="btn btn-success" type="submit" name="submit">
+				</form>
+				
+			</div>
+		</div>
+
+</body>
+</html>
